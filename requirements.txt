@@ -1,0 +1,4 @@
+easydict
+wandb
+ipdb
+composer[wandb]
