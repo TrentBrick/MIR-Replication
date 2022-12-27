@@ -18,8 +18,8 @@ extras = dict(
 
     test_name = "ToyTest",
 
-    model_name= "LEE_TOYMODEL",
-    dataset_name = "OG_LEE_TOYFEATURES",
+    model_name= "WHIT_TOYMODEL",
+    dataset_name = "WHIT_TOYFEATURES",
 
     log_disentangle_every_n_steps = 1,
 

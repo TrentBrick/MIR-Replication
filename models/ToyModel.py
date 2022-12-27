@@ -10,7 +10,7 @@ from core_scripts import global_timestamp
 import seaborn as sns
 import wandb
 import matplotlib.pyplot as plt
-from model_utils.compute_mir_n_migs import *
+from .model_utils.compute_mir_n_migs import *
 
 class ToyModel(MLP):
     def __init__(self, params):
@@ -82,7 +82,7 @@ class ToyModel(MLP):
 
         if self.training and self.params.use_wandb and global_timestamp.CURRENT_TRAIN_STEP%self.params.log_disentangle_every_n_steps==0:
 
-                self.compute_and_log_mir_and_mig( e.T.detach().cpu(), self.net[2].neuron_acts.T.detach().cpu() )
+                self.compute_and_log_mir_and_mig( e.T.detach().cpu(), self.net[1].neuron_acts.T.detach().cpu() )
                
 
         return y_pred
