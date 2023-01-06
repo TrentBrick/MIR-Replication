@@ -24,7 +24,7 @@ memory_per_job = 4000 # for GPU
 
 main_title = "WHIT_Full_Test"
 
-simple_iterable = [0.0, 0.01, 0.001, 0.0001, 0.00001]
+simple_iterable = None #[0.0, 0.01, 0.001, 0.0001, 0.00001]
 iterable_param = 'activation_l1_coefficient'#"activation_l1_coefficient" 
 
 name_suffix = f"{main_title}"  
