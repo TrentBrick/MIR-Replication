@@ -1,0 +1,21 @@
+compute-g-16-255.o2.rc.hms.harvard.edu
+/home/tbb16/MIR-Replication
+Init experiment WHIT_TOYMODEL special params: {'epochs_to_train_for': 80000, 'log_disentangle_every_n_steps': 500, 'opt': 'SGD', 'lr': 0.003, 'batch_size': 1024, 'dataset_size': 2048, 'test_name': 'ReLU+WD-4+L1-4WHIT_Full_Test_CopyCode', 'activation_l1_coefficient': 0.0001, 'adamw_l2_loss_weight': 0.0001, 'name_prefix': 'ReLU+WD-4+L1-4', 'name_suffix': 'WHIT_Full_Test_CopyCode'}
+Custom args are: {'epochs_to_train_for': 80000, 'log_disentangle_every_n_steps': 500, 'opt': 'SGD', 'lr': 0.003, 'batch_size': 1024, 'dataset_size': 2048, 'test_name': 'ReLU+WD-4+L1-4WHIT_Full_Test_CopyCode', 'activation_l1_coefficient': 0.0001, 'adamw_l2_loss_weight': 0.0001, 'name_prefix': 'ReLU+WD-4+L1-4', 'name_suffix': 'WHIT_Full_Test_CopyCode', 'num_workers': 2, 'load_path': None}
+/home/tbb16/anaconda3/envs/core/lib/python3.8/site-packages/requests/__init__.py:89: RequestsDependencyWarning: urllib3 (1.26.13) or chardet (3.0.4) doesn't match a supported version!
+  warnings.warn("urllib3 ({}) or chardet ({}) doesn't match a supported "
+Traceback (most recent call last):
+  File "slurm_runner.py", line 99, in <module>
+    train_func()
+  File "slurm_runner.py", line 42, in train_func
+    model, optimizer, dataloaders, params, callbacks, algorithms = compile_experiment(exp_settings, args.num_workers)
+  File "/home/tbb16/MIR-Replication/core_scripts/prep_experiment.py", line 46, in compile_experiment
+    model, optimizer, data_module, params = get_params_net_dataloader(
+  File "/home/tbb16/MIR-Replication/core_scripts/combine_params.py", line 86, in get_params_net_dataloader
+    model = params.model_class(params)
+  File "/home/tbb16/MIR-Replication/models/ToyModel.py", line 18, in __init__
+    super().__init__(params)
+  File "/home/tbb16/MIR-Replication/models/MLP.py", line 19, in __init__
+    TrackedActFunc(params.act_func, params.nneurons[0], params, layer_ind=0 ),
+AttributeError: 'EasyDict' object has no attribute 'act_func'
+srun: error: compute-g-16-255: task 0: Exited with exit code 1

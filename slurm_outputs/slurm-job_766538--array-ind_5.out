@@ -1,0 +1,98 @@
+compute-g-16-255.o2.rc.hms.harvard.edu
+/home/tbb16/MIR-Replication
+/home/tbb16/anaconda3/envs/core/lib/python3.8/site-packages/requests/__init__.py:89: RequestsDependencyWarning: urllib3 (1.26.13) or chardet (3.0.4) doesn't match a supported version!
+  warnings.warn("urllib3 ({}) or chardet ({}) doesn't match a supported "
+wandb: Currently logged in as: trentbrick (kreiman-sdm). Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.13.7
+wandb: Run data is saved locally in ../scratch_link/wandb_Logger/SparseDisentangle/wandb/run-20230107_104608-3c65nd21
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run ReLU+WD-4+L1-4WHIT_Full_Test_addedActWeight
+wandb: ⭐️ View project at https://wandb.ai/kreiman-sdm/SparseDisentangle
+wandb: 🚀 View run at https://wandb.ai/kreiman-sdm/SparseDisentangle/runs/3c65nd21
+Init experiment WHIT_TOYMODEL special params: {'epochs_to_train_for': 80000, 'log_disentangle_every_n_steps': 500, 'opt': 'SGD', 'lr': 0.003, 'batch_size': 1024, 'dataset_size': 2048, 'test_name': 'ReLU+WD-4+L1-4WHIT_Full_Test_addedActWeight', 'activation_l1_coefficient': 0.0001, 'adamw_l2_loss_weight': 0.0001, 'name_prefix': 'ReLU+WD-4+L1-4', 'name_suffix': 'WHIT_Full_Test_addedActWeight'}
+Custom args are: {'epochs_to_train_for': 80000, 'log_disentangle_every_n_steps': 500, 'opt': 'SGD', 'lr': 0.003, 'batch_size': 1024, 'dataset_size': 2048, 'test_name': 'ReLU+WD-4+L1-4WHIT_Full_Test_addedActWeight', 'activation_l1_coefficient': 0.0001, 'adamw_l2_loss_weight': 0.0001, 'name_prefix': 'ReLU+WD-4+L1-4', 'name_suffix': 'WHIT_Full_Test_addedActWeight', 'num_workers': 2, 'load_path': None}
+length of net parameters 4
+Number of non zero weights is: tensor(192)
+Final params being used {'entity': 'kreiman-sdm', 'project_name': 'SparseDisentangle', 'output_directory': '../scratch_link/wandb_Logger/SparseDisentangle/', 'shuffle_train': True, 'shuffle_val': True, 'dont_modify_loaded_models': True, 'load_optimizer': True, 'checkpoint_has_only_weights': False, 'load_existing_optimizer_state': True, 'starting_epoch': 0, 'opt': 'SGD', 'adam_betas': [0.9, 0.999], 'lr': 0.003, 'gradient_clip': 0.0, 'clipping_type': 'norm', 'adamw_l2_loss_weight': 0.0001, 'dataset_size': 2048, 'check_val_every_n_epoch': 10, 'save_model_checkpoints': True, 'num_checkpoints_to_keep': 1, 'checkpoint_every_n_epochs': 10, 'use_wandb': True, 'wandb_log_every_n_steps': 10, 'random_seed': None, 'activation_l1_coefficient': 0.0001, 'heatmap_logging_threshold': 100, 'dataset_name': 'WHIT_TOYFEATURES', 'model_name': 'WHIT_TOYMODEL', 'model_class': <class 'models.ToyModel.ToyModel'>, 'log_disentangle_every_n_steps': 500, 'neuron_act_penalty': True, 'batch_size': 1024, 'nneurons': [16], 'classification': False, 'use_ffcv': False, 'directory_path': 'BleepBlop', 'dataset_class': <class 'core_scripts.data_loaders.ToyFeatures'>, 'input_size': 6, 'n_features': 6, 'no_validation': True, 'epochs_to_train_for': 80000, 'test_name': 'ReLU+WD-4+L1-4WHIT_Full_Test_addedActWeight', 'name_prefix': 'ReLU+WD-4+L1-4', 'name_suffix': 'WHIT_Full_Test_addedActWeight', 'num_workers': 2, 'load_path': None, 'device_type': 'gpu', 'device': device(type='cuda'), 'load_from_checkpoint': None, 'output_size': 6}
+Traceback (most recent call last):
+  File "slurm_runner.py", line 99, in <module>
+    train_func()
+  File "slurm_runner.py", line 61, in train_func
+    trainer.fit()
+  File "/home/tbb16/anaconda3/envs/core/lib/python3.8/site-packages/composer/trainer/trainer.py", line 1780, in fit
+    self._train_loop()
+  File "/home/tbb16/anaconda3/envs/core/lib/python3.8/site-packages/composer/trainer/trainer.py", line 1944, in _train_loop
+    total_loss_dict = self._train_batch(use_grad_scaling)
+  File "/home/tbb16/anaconda3/envs/core/lib/python3.8/site-packages/composer/trainer/trainer.py", line 2123, in _train_batch
+    self._train_microbatches(microbatches, total_loss_dict)
+  File "/home/tbb16/anaconda3/envs/core/lib/python3.8/site-packages/composer/trainer/trainer.py", line 2203, in _train_microbatches
+    microbatch_loss_dict = self._train_microbatch(use_grad_scaling, current_batch_size, is_final_microbatch)
+  File "/home/tbb16/anaconda3/envs/core/lib/python3.8/site-packages/composer/trainer/trainer.py", line 2249, in _train_microbatch
+    self.state.outputs = self.state.model(self.state.batch)
+  File "/home/tbb16/anaconda3/envs/core/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/tbb16/MIR-Replication/models/Base_Model.py", line 38, in parse_inp
+    return forward(self, inp[0])
+  File "/home/tbb16/MIR-Replication/models/ToyModel.py", line 90, in forward
+    self.compute_and_log_mir_and_mig( e.T.detach().cpu(), self.net[1].neuron_acts.T.detach().cpu() )
+  File "/home/tbb16/MIR-Replication/models/ToyModel.py", line 59, in compute_and_log_mir_and_mig
+    act_w_mir, _ = compute_mir_n_mig(self.params.test_name, mi_mat, self.params, alive_neuron_inds, neuron_acts=neuron_acts, plot=False)
+  File "/home/tbb16/MIR-Replication/models/model_utils/compute_mir_n_migs.py", line 91, in compute_mir_n_mig
+    mir = compute_mir(model_template, mi_mat, params, alive_neuron_inds, neuron_acts=neuron_acts, plot=plot)
+  File "/home/tbb16/MIR-Replication/models/model_utils/compute_mir_n_migs.py", line 53, in compute_mir
+    return round(mir, 3)
+TypeError: type Tensor doesn't define __round__ method
+Traceback (most recent call last):
+  File "slurm_runner.py", line 99, in <module>
+    train_func()
+  File "slurm_runner.py", line 61, in train_func
+    trainer.fit()
+  File "/home/tbb16/anaconda3/envs/core/lib/python3.8/site-packages/composer/trainer/trainer.py", line 1780, in fit
+    self._train_loop()
+  File "/home/tbb16/anaconda3/envs/core/lib/python3.8/site-packages/composer/trainer/trainer.py", line 1944, in _train_loop
+    total_loss_dict = self._train_batch(use_grad_scaling)
+  File "/home/tbb16/anaconda3/envs/core/lib/python3.8/site-packages/composer/trainer/trainer.py", line 2123, in _train_batch
+    self._train_microbatches(microbatches, total_loss_dict)
+  File "/home/tbb16/anaconda3/envs/core/lib/python3.8/site-packages/composer/trainer/trainer.py", line 2203, in _train_microbatches
+    microbatch_loss_dict = self._train_microbatch(use_grad_scaling, current_batch_size, is_final_microbatch)
+  File "/home/tbb16/anaconda3/envs/core/lib/python3.8/site-packages/composer/trainer/trainer.py", line 2249, in _train_microbatch
+    self.state.outputs = self.state.model(self.state.batch)
+  File "/home/tbb16/anaconda3/envs/core/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/tbb16/MIR-Replication/models/Base_Model.py", line 38, in parse_inp
+    return forward(self, inp[0])
+  File "/home/tbb16/MIR-Replication/models/ToyModel.py", line 90, in forward
+    self.compute_and_log_mir_and_mig( e.T.detach().cpu(), self.net[1].neuron_acts.T.detach().cpu() )
+  File "/home/tbb16/MIR-Replication/models/ToyModel.py", line 59, in compute_and_log_mir_and_mig
+    act_w_mir, _ = compute_mir_n_mig(self.params.test_name, mi_mat, self.params, alive_neuron_inds, neuron_acts=neuron_acts, plot=False)
+  File "/home/tbb16/MIR-Replication/models/model_utils/compute_mir_n_migs.py", line 91, in compute_mir_n_mig
+    mir = compute_mir(model_template, mi_mat, params, alive_neuron_inds, neuron_acts=neuron_acts, plot=plot)
+  File "/home/tbb16/MIR-Replication/models/model_utils/compute_mir_n_migs.py", line 53, in compute_mir
+    return round(mir, 3)
+TypeError: type Tensor doesn't define __round__ method
+/home/tbb16/anaconda3/envs/core/lib/python3.8/site-packages/requests/__init__.py:89: RequestsDependencyWarning: urllib3 (1.26.13) or chardet (3.0.4) doesn't match a supported version!
+  warnings.warn("urllib3 ({}) or chardet ({}) doesn't match a supported "
+wandb: Waiting for W&B process to finish... (failed 1). Press Control-C to abort syncing.
+wandb: 
+wandb: Run history:
+wandb:                          epoch ▁▁▁
+wandb:                    global_step ▁▁▁
+wandb:           layer_0/Mean_L2_norm ▁
+wandb: layer_0/Mean_neuron_bias_terms ▁
+wandb:    layer_0/mean_Active_Neurons ▁
+wandb:              trainer/batch_idx ▁
+wandb:            trainer/global_step ▁
+wandb: 
+wandb: Run summary:
+wandb:                          epoch 0
+wandb:                    global_step 0
+wandb:           layer_0/Mean_L2_norm 0.55409
+wandb: layer_0/Mean_neuron_bias_terms -0.08575
+wandb:    layer_0/mean_Active_Neurons 0.59644
+wandb:              trainer/batch_idx 0
+wandb:            trainer/global_step 0
+wandb: 
+wandb: Synced ReLU+WD-4+L1-4WHIT_Full_Test_addedActWeight: https://wandb.ai/kreiman-sdm/SparseDisentangle/runs/3c65nd21
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ../scratch_link/wandb_Logger/SparseDisentangle/wandb/run-20230107_104608-3c65nd21/logs
+srun: error: compute-g-16-255: task 0: Exited with exit code 1

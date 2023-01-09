@@ -23,17 +23,27 @@ def histogram_discretize(target, num_bins=20):
             target[i, :], num_bins)[1][:-1])
     return discretized
 
-def compute_mir(model_template, mi_mat, params, alive_neuron_inds, plot=True):
+def compute_mir(model_template, mi_mat, params, alive_neuron_inds, neuron_acts=None, plot=True):
+
+    # nb. nothing in here is a pytorch tensor. 
 
     nactive_neurons = mi_mat.shape[1]
+    assert params.n_features == mi_mat.shape[0]
 
     rns = []
     for neuron_ind in range( nactive_neurons ):
         n_mis = mi_mat[:,neuron_ind]
         rn = max(n_mis)/ sum(n_mis)
+        
+        if neuron_acts is not None: 
+            #import ipdb 
+            #ipdb.set_trace()
+            rn *= (neuron_acts[neuron_ind]/sum(neuron_acts)).item()
+        else: 
+            rn *= 1/nactive_neurons
         rns.append(rn)
 
-    mir = ( (sum(rns)/nactive_neurons) - (1/params.n_features) )/(1 - (1/params.n_features))
+    mir = ( sum(rns) - (1/params.n_features) )/(1 - (1/params.n_features))
 
     if plot: 
         xax = range(nactive_neurons)
@@ -50,7 +60,7 @@ def compute_mir(model_template, mi_mat, params, alive_neuron_inds, plot=True):
     return round(mir, 3)
 
 
-def compute_mig(model_template, mi_mat, params, plot=True):
+def compute_mig(model_template, mi_mat, params, neuron_acts=None, plot=True):
     # Mutual info Gap
 
     # where am I getting this entropy from? 
@@ -69,6 +79,7 @@ def compute_mig(model_template, mi_mat, params, plot=True):
             f_mig = (f_mis[-1] - 0) / vk_entropy
         else: 
             f_mig = (f_mis[-1] - f_mis[-2]) / vk_entropy
+
         f_migs.append(f_mig)
 
     mig = sum(f_migs) / params.n_features
@@ -83,7 +94,7 @@ def compute_mig(model_template, mi_mat, params, plot=True):
 
     return round(mig, 3)
 
-def compute_mir_n_mig(model_template, mi_mat, params, alive_neuron_inds, plot=False):
-    mir = compute_mir(model_template, mi_mat, params, alive_neuron_inds, plot=plot)
-    mig = compute_mig(model_template, mi_mat, params, plot=plot)
+def compute_mir_n_mig(model_template, mi_mat, params, alive_neuron_inds, neuron_acts=None, plot=False):
+    mir = compute_mir(model_template, mi_mat, params, alive_neuron_inds, neuron_acts=neuron_acts, plot=plot)
+    mig = compute_mig(model_template, mi_mat, params, neuron_acts=neuron_acts, plot=plot)
     return mir, mig 

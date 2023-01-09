@@ -1,0 +1,42 @@
+compute-g-16-255.o2.rc.hms.harvard.edu
+/home/tbb16/MIR-Replication
+Init experiment WHIT_TOYMODEL special params: {'epochs_to_train_for': 80000, 'log_disentangle_every_n_steps': 500, 'opt': 'Adam', 'lr': 0.003, 'batch_size': 1024, 'dataset_size': 2048, 'test_name': 'ReLU+WD-4+L1-4WHIT_Full_Test_CopyCode', 'activation_l1_coefficient': 0.0001, 'adamw_l2_loss_weight': 0.0001, 'name_prefix': 'ReLU+WD-4+L1-4', 'name_suffix': 'WHIT_Full_Test_CopyCode'}
+Custom args are: {'epochs_to_train_for': 80000, 'log_disentangle_every_n_steps': 500, 'opt': 'Adam', 'lr': 0.003, 'batch_size': 1024, 'dataset_size': 2048, 'test_name': 'ReLU+WD-4+L1-4WHIT_Full_Test_CopyCode', 'activation_l1_coefficient': 0.0001, 'adamw_l2_loss_weight': 0.0001, 'name_prefix': 'ReLU+WD-4+L1-4', 'name_suffix': 'WHIT_Full_Test_CopyCode', 'num_workers': 2, 'load_path': None}
+/home/tbb16/anaconda3/envs/core/lib/python3.8/site-packages/requests/__init__.py:89: RequestsDependencyWarning: urllib3 (1.26.13) or chardet (3.0.4) doesn't match a supported version!
+  warnings.warn("urllib3 ({}) or chardet ({}) doesn't match a supported "
+> [0;32m/home/tbb16/MIR-Replication/models/ToyModel.py[0m(32)[0;36m__init__[0;34m()[0m
+[0;32m     31 [0;31m            [0;31m# w_true[0,:] @ w_true[1,:].T[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0m[0;32m---> 32 [0;31m            [0mprint[0m[0;34m([0m[0;34m"ortho shape"[0m[0;34m,[0m [0mw_true[0m[0;34m.[0m[0mshape[0m [0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[0;32m     33 [0;31m        [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m
+ipdb> 
+Traceback (most recent call last):
+  File "slurm_runner.py", line 99, in <module>
+    train_func()
+  File "slurm_runner.py", line 42, in train_func
+    model, optimizer, dataloaders, params, callbacks, algorithms = compile_experiment(exp_settings, args.num_workers)
+  File "/home/tbb16/MIR-Replication/core_scripts/prep_experiment.py", line 46, in compile_experiment
+    model, optimizer, data_module, params = get_params_net_dataloader(
+  File "/home/tbb16/MIR-Replication/core_scripts/combine_params.py", line 86, in get_params_net_dataloader
+    model = params.model_class(params)
+  File "/home/tbb16/MIR-Replication/models/ToyModel.py", line 32, in __init__
+    print("ortho shape", w_true.shape )
+  File "/home/tbb16/MIR-Replication/models/ToyModel.py", line 32, in __init__
+    print("ortho shape", w_true.shape )
+  File "/home/tbb16/anaconda3/envs/core/lib/python3.8/bdb.py", line 88, in trace_dispatch
+    return self.dispatch_line(frame)
+  File "/home/tbb16/anaconda3/envs/core/lib/python3.8/bdb.py", line 113, in dispatch_line
+    if self.quitting: raise BdbQuit
+bdb.BdbQuit
+
+If you suspect this is an IPython 7.30.1 bug, please report it at:
+    https://github.com/ipython/ipython/issues
+or send an email to the mailing list at ipython-dev@python.org
+
+You can print a more detailed traceback right now with "%tb", or use "%debug"
+to interactively debug it.
+
+Extra-detailed tracebacks for bug-reporting purposes can be enabled via:
+    %config Application.verbose_crash=True
+
+srun: error: compute-g-16-255: task 0: Exited with exit code 1

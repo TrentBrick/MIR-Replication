@@ -16,7 +16,7 @@ class MLP(BaseModel):
         self.net = nn.Sequential( 
             *[
                 TrackedMLPLayer(params.input_size, params.nneurons[0], use_bias=True, layer_ind=0, params=params ),
-                TrackedActFunc(nn.ReLU(), params.nneurons[0], params, layer_ind=0 ),
+                TrackedActFunc(params.act_func, params.nneurons[0], params, layer_ind=0 ),
                  nn.Linear(params.nneurons[0], params.output_size, bias=True)
                 ])
 

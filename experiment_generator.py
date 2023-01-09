@@ -12,8 +12,8 @@ settings_for_all = dict(
     epochs_to_train_for = 80_000,
     log_disentangle_every_n_steps = 500,
 
-    opt='SGD',
-    lr=0.003,
+    opt='Adam',
+    lr=3e-3,
 
     batch_size=1024,
     dataset_size = 1024*2,
@@ -22,7 +22,7 @@ settings_for_all = dict(
 
 memory_per_job = 4000 # for GPU
 
-main_title = "WHIT_Full_Test"
+main_title = "WHIT_Full_Test_CopyCode_FlippedMatrices"
 
 simple_iterable = None #[0.0, 0.01, 0.001, 0.0001, 0.00001]
 iterable_param = 'activation_l1_coefficient'#"activation_l1_coefficient" 

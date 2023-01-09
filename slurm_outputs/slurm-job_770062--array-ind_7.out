@@ -1,0 +1,18 @@
+compute-g-16-176.o2.rc.hms.harvard.edu
+/home/tbb16/MIR-Replication
+/home/tbb16/anaconda3/envs/core/lib/python3.8/site-packages/requests/__init__.py:89: RequestsDependencyWarning: urllib3 (1.26.13) or chardet (3.0.4) doesn't match a supported version!
+  warnings.warn("urllib3 ({}) or chardet ({}) doesn't match a supported "
+wandb: Currently logged in as: trentbrick (kreiman-sdm). Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.13.7
+wandb: Run data is saved locally in ../scratch_link/wandb_Logger/SparseDisentangle/wandb/run-20230107_133803-1tn2sbg4
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run LinearWHIT_Full_Test_addedActWeight
+wandb: ⭐️ View project at https://wandb.ai/kreiman-sdm/SparseDisentangle
+wandb: 🚀 View run at https://wandb.ai/kreiman-sdm/SparseDisentangle/runs/1tn2sbg4
+Init experiment WHIT_TOYMODEL special params: {'epochs_to_train_for': 80000, 'log_disentangle_every_n_steps': 500, 'opt': 'SGD', 'lr': 0.003, 'batch_size': 1024, 'dataset_size': 2048, 'test_name': 'LinearWHIT_Full_Test_addedActWeight', 'act_func': Identity(), 'name_prefix': 'Linear', 'name_suffix': 'WHIT_Full_Test_addedActWeight'}
+Custom args are: {'epochs_to_train_for': 80000, 'log_disentangle_every_n_steps': 500, 'opt': 'SGD', 'lr': 0.003, 'batch_size': 1024, 'dataset_size': 2048, 'test_name': 'LinearWHIT_Full_Test_addedActWeight', 'act_func': Identity(), 'name_prefix': 'Linear', 'name_suffix': 'WHIT_Full_Test_addedActWeight', 'num_workers': 2, 'load_path': None}
+length of net parameters 4
+Number of non zero weights is: tensor(192)
+Final params being used {'entity': 'kreiman-sdm', 'project_name': 'SparseDisentangle', 'output_directory': '../scratch_link/wandb_Logger/SparseDisentangle/', 'shuffle_train': True, 'shuffle_val': True, 'dont_modify_loaded_models': True, 'load_optimizer': True, 'checkpoint_has_only_weights': False, 'load_existing_optimizer_state': True, 'starting_epoch': 0, 'opt': 'SGD', 'adam_betas': [0.9, 0.999], 'lr': 0.003, 'gradient_clip': 0.0, 'clipping_type': 'norm', 'adamw_l2_loss_weight': 0.001, 'dataset_size': 2048, 'check_val_every_n_epoch': 10, 'save_model_checkpoints': True, 'num_checkpoints_to_keep': 1, 'checkpoint_every_n_epochs': 10, 'use_wandb': True, 'wandb_log_every_n_steps': 10, 'random_seed': None, 'activation_l1_coefficient': None, 'heatmap_logging_threshold': 100, 'dataset_name': 'WHIT_TOYFEATURES', 'model_name': 'WHIT_TOYMODEL', 'model_class': <class 'models.ToyModel.ToyModel'>, 'log_disentangle_every_n_steps': 500, 'neuron_act_penalty': True, 'batch_size': 1024, 'nneurons': [16], 'classification': False, 'use_ffcv': False, 'directory_path': 'BleepBlop', 'dataset_class': <class 'core_scripts.data_loaders.ToyFeatures'>, 'input_size': 6, 'n_features': 6, 'no_validation': True, 'epochs_to_train_for': 80000, 'test_name': 'LinearWHIT_Full_Test_addedActWeight', 'act_func': Identity(), 'name_prefix': 'Linear', 'name_suffix': 'WHIT_Full_Test_addedActWeight', 'num_workers': 2, 'load_path': None, 'device_type': 'gpu', 'device': device(type='cuda'), 'load_from_checkpoint': None, 'output_size': 6}
+slurmstepd: error: *** STEP 770062.0 ON compute-g-16-176 CANCELLED AT 2023-01-07T13:58:14 ***
+slurmstepd: error: *** JOB 770062 ON compute-g-16-176 CANCELLED AT 2023-01-07T13:58:14 ***

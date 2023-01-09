@@ -16,6 +16,8 @@ global_default_settings = EasyDict(
     shuffle_train = True, 
     shuffle_val=True, 
 
+    act_func = nn.ReLU(),
+
     # model loading
     dont_modify_loaded_models = True, # otherwise will modify the model parameters!
     load_optimizer = True, 

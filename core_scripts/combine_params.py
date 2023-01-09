@@ -83,6 +83,7 @@ def get_params_net_dataloader(
         data_path=dataset_path
     )
 
+
     model = params.model_class(params)
 
     # init optimizer
